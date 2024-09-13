@@ -7,20 +7,16 @@ import math
 
 
 w = []
-w0 = 0
-x0 = 1
 s01 = -math.inf
 s02 = math.inf
 
 if is_bipolar:
-    w0 = w0 + x0 * y1
+    w0 = y1 + y2
     w = w_bipolar.calculate(w, picture1, y1)
-    w0 = w0 + x0 * y2
     w = w_bipolar.calculate(w, picture2, y2)
 else:
-    w0 = w0 + w_to_binary.equate(x0, y1)
+    w0 = w_to_binary.equate(1, y1) + w_to_binary.equate(1, y2)
     w = w_binary.calculate(w, picture1, y1)
-    w0 = w0 + w_to_binary.equate(x0, y2)
     w = w_binary.calculate(w, picture2, y2)
 
 while True:
