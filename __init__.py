@@ -1,3 +1,5 @@
+import w_compare
+import w_save
 from GlobalValues import *
 import w_bipolar
 import s
@@ -26,20 +28,9 @@ while True:
         print("Equation was successful! Current values: " + str(s1) + ", " + str(s2))
         prompt = input("Do you want to save the current values?: ")
         if prompt.lower() == "y":
-            with open("saved.txt", "w") as f:
-                for i in w:
-                    f.write(str(i) + " ")
+            w_save.save(w)
         else:
-            dev = 0
-            with open("saved.txt", "r") as f:
-                w_old = f.readline().split()
-            for i in range(len(w)):
-                if w[i] != int(w_old[i]):
-                    dev += 1
-            if dev > len(w) * threshold:
-                print("Comparison unsuccessful, the deviation is above the threshold")
-            else:
-                print("Comparison successful, because the deviation is below the threshold")
+            w_compare.compare(w)
         break
     else:
         if s1 - s01 > 0 >= s1 - s02:
