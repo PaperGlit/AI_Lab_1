@@ -12,16 +12,16 @@ w = []
 s01 = -math.inf
 s02 = math.inf
 
-if is_bipolar:
-    w0 = y1 + y2
-    w = w_bipolar.calculate(w, picture1, y1)
-    w = w_bipolar.calculate(w, picture2, y2)
-else:
-    w0 = w_to_binary.equate(1, y1) + w_to_binary.equate(1, y2)
-    w = w_binary.calculate(w, picture1, y1)
-    w = w_binary.calculate(w, picture2, y2)
-
 while True:
+    if is_bipolar:
+        w0 = y1 + y2
+        w = w_bipolar.calculate(w, picture1, y1)
+        w = w_bipolar.calculate(w, picture2, y2)
+    else:
+        w0 = w_to_binary.equate(1, y1) + w_to_binary.equate(1, y2)
+        w = w_binary.calculate(w, picture1, y1)
+        w = w_binary.calculate(w, picture2, y2)
+
     s1 = s.calculate(w, w0, picture1)
     s2 = s.calculate(w, w0, picture2)
     if s1 > 0 >= s2:

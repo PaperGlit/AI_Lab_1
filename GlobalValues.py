@@ -2,7 +2,7 @@ import to_bipolar
 
 
 picture1 = [1, 0, 1,
-            1, 1, 1,
+            0, 0, 1,
             0, 0, 1]
 picture2 = [1, 1, 1,
             1, 0, 1,
